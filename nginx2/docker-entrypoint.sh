@@ -5,7 +5,7 @@ set -e
 
 # What is the backend's name and port? The backend should be the name of the
 # Docker image that is linked to nginx.
-PLACEHOLDER_BACKEND_NAME="app"
+PLACEHOLDER_BACKEND_NAME="wbs"
 PLACEHOLDER_BACKEND_PORT="3000"
 
 # What should the virtualhost's name be? This is the server_name value and would
