@@ -1,0 +1,18 @@
+[Unit]
+Description=Run %p
+Requires=docker.service
+After=docker.service wbs.service
+
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/docker kill wbs_%p
+ExecStartPre=-/usr/bin/docker rm -f wbs_%p
+ExecStart=/usr/bin/docker run -t --rm --name wbs_%p  \
+        --link wbs:wbs \
+    --volumes-from wbs \
+    --net wbs_default \
+   -p 80:80 -p 443:443 wbs_%p
+ExecStop=/usr/bin/docker stop wbs_%p
+
+[Install]
+WantedBy=multi-user.target

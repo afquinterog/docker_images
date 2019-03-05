@@ -1,0 +1,16 @@
+[Unit]
+Description=Run %p
+Requires=docker.service 
+After=docker.service 
+
+[Service]
+WorkingDirectory=/var/www/wbs
+RemainAfterExit=yes
+Restart=always
+ExecStartPre=-/usr/local/bin/docker-compose pull --quiet %p
+ExecStart=/usr/local/bin/docker-compose -f docker-compose-staging.yml up -d
+         
+ExecStop=/usr/local/bin/docker-compose down
+
+[Install]
+WantedBy=multi-user.target nginx.service
