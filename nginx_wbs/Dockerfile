@@ -12,8 +12,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl \
 RUN rm /usr/share/nginx/html/*
 
 # Copy over the custom nginx and default configs.
-COPY configs/nginx.conf /etc/nginx/nginx.conf
-COPY configs/default.conf /etc/nginx/conf.d/default.conf
+#COPY configs/nginx.conf /etc/nginx/nginx.conf
+#COPY configs/default.conf /etc/nginx/conf.d/default.conf
 
 # Allow us to customize the entrypoint of the image.
 #COPY docker-entrypoint.sh /
