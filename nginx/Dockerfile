@@ -1,5 +1,5 @@
 FROM nginx:1.9
-MAINTAINER Nick Janetakis <nick.janetakis@gmail.com>
+MAINTAINER Andres Quintero <andres@venture.co>
 
 RUN rm /usr/share/nginx/html/*
 
