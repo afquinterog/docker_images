@@ -18,14 +18,14 @@ PLACEHOLDER_BACKEND_PORT="3000"
 #
 # http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
 #PLACEHOLDER_VHOST="$(curl http://169.254.169.254/latest/meta-data/public-hostname)"
-#PLACEHOLDER_VHOST="parrowbs.site"
+PLACEHOLDER_VHOST="parrowbs.site"
 #PLACEHOLDER_VHOST="localhost"
 
 # Where is our default config located?
 DEFAULT_CONFIG_PATH="/etc/nginx/conf.d/default.conf"
 
 # Replace all instances of the placeholders with the values above.
-#sed -i "s/PLACEHOLDER_VHOST/${PLACEHOLDER_VHOST}/g" "${DEFAULT_CONFIG_PATH}"
+sed -i "s/PLACEHOLDER_VHOST/${PLACEHOLDER_VHOST}/g" "${DEFAULT_CONFIG_PATH}"
 sed -i "s/PLACEHOLDER_BACKEND_NAME/${PLACEHOLDER_BACKEND_NAME}/g" "${DEFAULT_CONFIG_PATH}"
 sed -i "s/PLACEHOLDER_BACKEND_PORT/${PLACEHOLDER_BACKEND_PORT}/g" "${DEFAULT_CONFIG_PATH}"
 
