@@ -1,11 +1,11 @@
 # Pull in the from the official nginx image.
-FROM nginx:1.10
+FROM nginx:1.9
 
 # Optionally set a maintainer name to let people know who made this image.
 MAINTAINER Andres Quintero <andres@venture.co>
 
 # We'll need curl within the nginx image.
-RUN apt-get update && apt-get install -y --no-install-recommends curl \
+RUN apt-get update && apt-get install -y  curl \
       && rm -rf /var/lib/apt/lists/*
 
 # Delete the default welcome to nginx page.
