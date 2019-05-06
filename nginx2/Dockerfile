@@ -5,8 +5,10 @@ FROM nginx:1.9
 MAINTAINER Andres Quintero <andres@venture.co>
 
 # We'll need curl within the nginx image.
+RUN apt-get update
+RUN apt-get install wget
 RUN wget https://nginx.org/keys/nginx_signing.key -O - | sudo apt-key add -
-RUN apt-get update && apt-get install -y --no-install-recommends curl \
+RUN apt-get install -y --no-install-recommends curl \
       && rm -rf /var/lib/apt/lists/*
 
 # Delete the default welcome to nginx page.
